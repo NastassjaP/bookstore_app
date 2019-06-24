@@ -1,0 +1,18 @@
+=form_with model: @book,local: true do |form|
+  p
+  =form.label :'Book Name'
+  =form.text_field :name
+
+  p
+  =form.label :'Description'
+  =form.text_field :description
+
+  p
+  =form.label :'Date published'
+  = form.date_select :date_published, { prompt: { day: 'Select day', month: 'Select month', year: 'Select year' }, start_year: Date.today.year - 100, end_year: Date.today.year}, {required: true}
+  p
+  =form.label :'Genre'
+  =collection_select(:book, :genre_id, Genre.all, :id, :name)
+
+  p
+    =form.submit

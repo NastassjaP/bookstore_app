@@ -12,7 +12,10 @@ def create
   @genre.save
   redirect_to genres_url
 end
-
+def show
+  @genre=Genre.find(params[:id])
+  @books=@genre.books.all
+end
 private
 def genre_params
   params.require(:genre).permit(:name)
