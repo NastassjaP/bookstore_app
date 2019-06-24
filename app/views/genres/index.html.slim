@@ -5,6 +5,7 @@ h1 Genres
   b = genre.name
 br
 br
-=link_to 'New Genre', new_genre_path
+-if current_user
+  =link_to 'New Genre', new_genre_path
 br
 =link_to 'Back', authenticated_root_path

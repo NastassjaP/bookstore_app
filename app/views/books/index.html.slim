@@ -1,0 +1,22 @@
+h1 Books
+-if current_user
+  =link_to 'New Book', new_book_path
+br
+=link_to 'Back', authenticated_root_path
+br
+-@books.each do |book|
+  br
+    b Book name:
+    =<book.name
+    br
+    b Description:
+    =<book.description
+    br
+    b Date published:
+    =<book.date_published
+    br
+    b Genre:
+    =<book.genre.name
+    br
+    b Author Name:
+    =< "#{book.user.first_name} #{book.user.last_name}"
