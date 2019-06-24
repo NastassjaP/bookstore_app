@@ -1,22 +1,22 @@
 h1 Books
 -if current_user
-  =link_to 'New Book', new_book_path
-br
-=link_to 'Back', authenticated_root_path
-br
--@books.each do |book|
+  =>link_to 'New Book', new_book_path
+  =>link_to 'Genres', genres_url
   br
-    b Book name:
-    =<book.name
+  =>link_to 'View Profile', controller: 'pages'
+  =>link_to 'Sign out', destroy_user_session_path, method: :delete
+
+-else
+  =link_to 'Sign in', new_user_session_path
+p
+
+table
+  tr
+    th Book name
     br
-    b Description:
-    =<book.description
-    br
-    b Date published:
-    =<book.date_published
-    br
-    b Genre:
-    =<book.genre.name
-    br
-    b Author Name:
-    =< "#{book.user.first_name} #{book.user.last_name}"
+    th Genre name
+
+  -@books.each do |book|
+    tr
+      td =link_to book.name, book_path(book)
+      td =book.genre.name

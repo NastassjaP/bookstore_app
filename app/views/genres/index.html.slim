@@ -1,11 +1,8 @@
 h1 Genres
+-if current_user
+ h3 = link_to 'New Genre', new_genre_path
 
 -@genres.each do |genre|
-  br
-  b = genre.name
-br
-br
--if current_user
-  =link_to 'New Genre', new_genre_path
-br
-=link_to 'Back', authenticated_root_path
+ h3 = genre.name
+
+= link_to 'Back', root_url
