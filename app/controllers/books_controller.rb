@@ -12,12 +12,7 @@ class BooksController < ApplicationController
   end
 
   def index
-    if current_user
-      @user=User.find(current_user.id)
-      @books=@user.books.all
-    else
-      @books=Book.all
-    end
+    @books = BookFilter.new(current_user).filter
   end
 
   def show

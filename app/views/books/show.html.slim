@@ -25,6 +25,8 @@ p
   br
 
 p
-  =link_to 'Back', root_url
-  br
+
+-if current_user && current_user.id == @book.user.id
   =link_to 'Edit', edit_book_path
+br
+=link_to 'Back', page_path

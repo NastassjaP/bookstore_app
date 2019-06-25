@@ -1,0 +1,13 @@
+table
+  tr
+    th Book name
+    br
+    th Genre name
+
+  -@books.each do |book|
+    tr
+      td =link_to book.name, book_path(book)
+      td =book.genre.name
+
+br
+=> link_to 'Back', pages_path

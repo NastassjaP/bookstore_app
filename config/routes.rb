@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
-  devise_for :users
+  devise_for :users, controllers: { registrations: "registrations" }
+  def after_sign_up_path_for(resource)
+  return "/pages"
+  end
   resources :books
   resources :genres
   root 'books#index'
