@@ -20,3 +20,4 @@ table
     tr
       td =link_to book.name, book_path(book)
       td =link_to book.genre.name, genre_url(book.genre_id)
+      td =submit_tag(value = "Purchase", options = {})

@@ -16,7 +16,7 @@ p
 
   p
     = 'Book Author: '
-    = "#{@book.user.first_name} #{@book.user.last_name}"
+    = BookPresenter.new(@book).full_name
     br
 
 p
@@ -27,8 +27,8 @@ p
 p
 
 -if current_user && current_user.id == @book.user.id
-  =link_to 'Edit', edit_book_path
-  =link_to 'Back', page_path
+  =>link_to 'Edit', edit_book_path
+  =<link_to 'Back', page_path
 -else
   =link_to 'Back', :back
 

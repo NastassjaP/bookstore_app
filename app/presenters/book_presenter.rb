@@ -1,10 +1,9 @@
 class BookPresenter
-  def initialize(model, view)
-    @model, @view = model, view
-    super(@model)
-
-    if @user ==false
-      @books=Book.all
-    end
+  def initialize(book)
+     @book=book
   end
+
+    def full_name
+      "#{@book.user.first_name} #{@book.user.last_name}"
+    end
 end
