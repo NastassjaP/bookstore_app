@@ -1,8 +1,7 @@
 h1 Genres
 -if current_user
- h3 = link_to 'New Genre', new_genre_path
-
+  h3
+    => link_to 'New Genre', new_genre_path
+    =< link_to 'Back', :back
 -@genres.each do |genre|
- h3 = genre.name
-
-=link_to 'Back', :back
+  h4 = link_to genre.name,genre_url(genre)

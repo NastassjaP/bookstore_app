@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   return "/pages"
   end
   resources :books
+  post 'purchase', to: 'book_purchases#create' 
   resources :genres
   root 'books#index'
   resources:pages

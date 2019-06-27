@@ -8,6 +8,7 @@ class BooksController < ApplicationController
   def create
     @user=User.find(current_user.id)
     @book=@user.books.create(book_params)
+    @user.authors_associations.create(:user_id=>current_user.id,:book_id=>@book.id,:association_type=>'author')
     redirect_to books_url
   end
 
@@ -31,6 +32,13 @@ class BooksController < ApplicationController
     redirect_to @book
   end
 
+  def destroy
+    @user=User.find(current_user.id)
+    @book=@user.books.find(params[:id])
+    @book.destroy
+    redirect_to pages_path
+  end
+  
   private
 
   def book_params

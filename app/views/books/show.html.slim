@@ -28,7 +28,8 @@ p
 
 -if current_user && current_user.id == @book.user.id
   =>link_to 'Edit', edit_book_path
-  =<link_to 'Back', page_path
+  =>link_to 'Delete', book_path(@book), method: :delete, data: { confirm: 'Are you sure?' }
+  =<link_to 'Back', pages_path
 -else
   =link_to 'Back', :back
 
