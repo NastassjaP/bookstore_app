@@ -18,6 +18,7 @@ class BooksController < ApplicationController
 
   def show
     @book=Book.find(params[:id])
+    @reviews=@book.reviews
   end
 
   def edit
@@ -38,7 +39,7 @@ class BooksController < ApplicationController
     @book.destroy
     redirect_to pages_path
   end
-  
+
   private
 
   def book_params
