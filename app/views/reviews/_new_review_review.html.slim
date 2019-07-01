@@ -1,11 +1,11 @@
 h3 New Review
 
-=form_with model: [ @review, @review.reviews.build ], local: true, url: review_reviews_path(@review)  do |form|
+=form_with model: [@review, @review.reviews.build ], local: true, url: review_reviews_path(@review)  do |form|
   p
   =form.label :'Review'
   =form.text_area :body
-  br
   p
-  =form.submit
-p
-  =link_to 'Back', books_path
+  =form.submit("Add")
+  p
+
+  =link_to 'Back', Book.find(@review.reviewable_id)

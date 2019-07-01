@@ -24,12 +24,10 @@ p
   = @book.genre.name
   br
 
-p
-
 -if current_user && current_user.id == @book.user.id
   =>link_to 'Edit Book', edit_book_path
   =>link_to 'Delete Book', book_path(@book), method: :delete, data: { confirm: 'Are you sure?' }
-  =<link_to 'Back', pages_path
+  =<link_to 'Back', :back
   br
   =render 'reviews'
 -elsif current_user

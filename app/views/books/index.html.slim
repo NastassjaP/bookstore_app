@@ -20,4 +20,5 @@ table
     tr
       td =link_to book.name, book_path(book)
       td =link_to book.genre.name, genre_url(book.genre_id)
-      td =button_to("Purchase", :action => "create", :controller => "book_purchases",:params => {:purch_book => book.id})
+      -if current_user
+        td =button_to("Purchase", :action => "create", :controller => "book_purchases",:params => {:purch_book => book.id})
